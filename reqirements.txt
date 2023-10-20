@@ -1,5 +1,0 @@
-fastapi
-uvicorn
-pydantic_settings
-python-dotenv
-sqlalchemy
