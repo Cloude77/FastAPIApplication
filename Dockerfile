@@ -1,19 +1,19 @@
+# Используйте базовый образ Python 3.11
 FROM python:3.11
 
-
-# Set working directory to /usr/src/app
+# Установите рабочую директорию внутри контейнера
 WORKDIR /usr/src/app
 
-# Copy the current directory contents into the container at /usr/src/app
+# Скопируйте содержимое текущей директории в контейнер в директорию /usr/src/app
 COPY . /usr/src/app
 
-# Install any needed packages specified in requirements.txt
-RUN pip install -r requirements.txt
+# Установите зависимости, перечисленные в requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 8000 available to the world outside this container
+# Выставьте порт 8000, который будет прослушиваться контейнером
 EXPOSE 8000
 
-
-# RUN a command
-#CMD ["python", "main.py"]
+# Запустите приложение с помощью команды CMD
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+
